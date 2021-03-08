@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <script src="js/sha256.js"></script>
+    <script src="js/Block1.js"> </script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Title</title>
+</head>
+
+<body onload="onLoadFunction();">
+    <div class="jumbotron">
+        <center>
+            <h4 style="margin-top:-50px">Blockchain Example</h4>
+            <br>
+        </center>
+        <div class="row form-group">
+            <div class="col-lg-4">
+                <form action="#" name="first" id="first">
+                    <table id="mytbl" style="background-color:lightblue;" class="table ">
+                        <tr>
+                            <th>
+                                Block no
+                            </th>
+                            <td>
+                                <input type="text" class="form-control" name="" id="txt_no" value="1" disabled>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                Nounce
+                            </th>
+                            <td>
+                                <input type="text" class="form-control" id="txt_nounce" value="0">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                PrevHash
+                            </th>
+                            <td>
+                                <input type="text" class="form-control" id="txt_prevHash" value="0" disabled>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                Data
+                            </th>
+                            <td>
+                                <textarea name="" class="form-control" id="txt_input" cols="20" rows="3" onkeyup="calculateHash(this.form)"></textarea>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <th>
+                                Hash
+                            </th>
+                            <td>
+                                <input type="text" id="txt_hash1" class="form-control" disabled>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+
+                            </th>
+                            <th>
+                                <input type="button" class="btn btn-success form-control" value="Mine!" onclick="mineBlock(this.form);">
+                            </th>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
+            <div class="col-lg-4">
+                <form action="#" name="second" id="second">
+                    <table id="mytbl" style="background-color:lightblue ; " class="table ">
+                        <tr>
+                            <th>
+                                Block no
+                            </th>
+                            <td>
+                                <input type="text" class="form-control" name="" id="txt_no" value="2" disabled>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                Nounce
+                            </th>
+                            <td>
+                                <input type="text" class="form-control" id="txt_nounce" value="0">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                PrevHash
+                            </th>
+                            <td>
+                                <input type="text" class="form-control" id="txt_prevHash" value="0" disabled>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                Data
+                            </th>
+                            <td>
+                                <textarea name="" class="form-control" id="txt_input" cols="20" rows="3" onkeyup="calculateHash(this.form)"></textarea>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <th>
+                                Hash
+                            </th>
+                            <td>
+                                <input type="text" id="txt_hash1" class="form-control" disabled>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+
+                            </th>
+                            <th>
+                                <input type="button" class="btn btn-success form-control" value="Mine!" onclick="mineBlock(this.form);">
+                            </th>
+
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="col-lg-4">
+                <form action="#" name="third" id="third">
+                    <table id="mytbl" style="background-color:lightblue ; " class="table ">
+
+                        <tr>
+                            <th>
+                                Block no
+                            </th>
+                            <td>
+                                <input type="text" class="form-control" name="" id="txt_no" value="3" disabled>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                Nounce
+                            </th>
+                            <td>
+                                <input type="text" class="form-control" id="txt_nounce" value="0">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                PrevHash
+                            </th>
+                            <td>
+                                <input type="text" class="form-control" id="txt_prevHash" value="0" disabled>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                Data
+                            </th>
+                            <td>
+                                <textarea name="" class="form-control" id="txt_input" cols="20" rows="3" onkeyup="calculateHash(this.form)"></textarea>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <th>
+                                Hash
+                            </th>
+                            <td>
+                                <input type="text" id="txt_hash1" class="form-control" disabled>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+
+                            </th>
+                            <th>
+                                <input type="button" class="btn btn-success form-control" value="Mine!" onclick="mineBlock(this.form);">
+                            </th>
+
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row" style="">
+                
+                <div class="col-lg-12 row form-group">
+                    <form action="">
+                        <table >
+                            <tr>
+                                <th>
+                                    <a style="margin-left: 420px;margin-right:50px" href="./Block.html" class="btn btn-danger"><i class="fas fa-backward"></i> Previous </i></a>
+                                </th>
+                                <th>
+                                    
+                                    <a style="padding-right: 35px;text-align: center" href="./Distributed.html" class="btn btn-primary">Next <i class="fas fa-forward"></i></a>
+                                </th>
+                            </tr>
+                        </table>
+    
+                    </form>
+                </div>
+                
+                
+            <div class="footer">
+                    <p class="b">Blockchain Visual Representation</p>
+                    <p class="s">By Anand Solanki</p>
+                </div>
+        </div>
+            </div>
+        </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+
+</html>

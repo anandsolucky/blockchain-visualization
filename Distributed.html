@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <script src="js/sha256.js"></script>
+    <script src="js/Block.js"> </script>
+    <script>
+        var peerArray = [];
+
+        let DemoBlockChain0 = new BlockChain();
+        let DemoBlockChain1 = new BlockChain();
+        let DemoBlockChain2 = new BlockChain();
+        
+        DemoBlockChain0.addBlock(new Block(1, 0, "abc"));
+        DemoBlockChain0.addBlock(new Block(2, 0, "xyz"));
+        DemoBlockChain0.addBlock(new Block(3, 0, "pqr"));
+        DemoBlockChain0.addBlock(new Block(4, 0, "mnp"));
+
+        DemoBlockChain1.addBlock(new Block(1, 0, "abc"));
+        DemoBlockChain1.addBlock(new Block(2, 0, "xyz"));
+        DemoBlockChain1.addBlock(new Block(3, 0, "pqr"));
+        DemoBlockChain1.addBlock(new Block(4, 0, "mnp"));
+
+        DemoBlockChain2.addBlock(new Block(1, 0, "abc"));
+        DemoBlockChain2.addBlock(new Block(2, 0, "xyz"));
+        DemoBlockChain2.addBlock(new Block(3, 0, "pqr"));
+        DemoBlockChain2.addBlock(new Block(4, 0, "mnp"));
+
+        peerArray[0] = DemoBlockChain0;
+        peerArray[1] = DemoBlockChain1;
+        peerArray[2] = DemoBlockChain2;
+    </script>
+    <script src="js/DistributedJS.js"> </script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Distributed</title>
+    
+</head>
+
+<body onload="onLoadFunction();">
+    <div class="jumbotron">
+        <center>
+            <h4 style="margin-top:-50px">Blockchain Example</h4>
+            <br>
+        </center>
+        <div class=" row outer  form-group" id="blockDiv">
+            
+            
+        </div>
+        <div class="row form-group">
+                <form action="">
+                    <div class="col-lg-6">
+                        <a style="margin-left:570px" href="./Block.html" class="btn btn-primary">  <i class="fas fa-backward"></i> Previous</a>
+                        
+                    </div>
+                </form>
+            </div>
+        <div class="footer">
+                <p class="b">Blockchain Visual Representation</p>
+                <p class="s">By Anand Solanki</p>
+            </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+
+</html>

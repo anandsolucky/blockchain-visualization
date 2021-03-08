@@ -1,0 +1,28 @@
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #E9ECEF;
+    text-align: center;
+    color: black;
+    
+}
+.b{
+    font-weight: bold;
+    font-size: 15px;
+}
+.s{
+    font-size: 10px;
+}
+
+.outer {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    
+}
+
+blockDiv{
+    border: solid 2px black;
+}

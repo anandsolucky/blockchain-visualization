@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/sha256.js"></script>
+    <title>Block</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <center>
+                <h3 style="margin-top:-50px">Block Example</h3>
+            </center>
+            <div class="row form-group">
+
+                <div class="col-lg-6" style="margin-left:260px">
+
+                    <form action="#" name="first" id="first">
+                        <table id="mytbl" style="background-color:lightblue ;  " class="table ">
+                            <tr>
+                                <th>
+                                    Block no
+                                </th>
+                                <td>
+                                    <input type="text" class="form-control" name="" id="txt_no" value="1" disabled>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>
+                                    Nounce
+                                </th>
+                                <td>
+                                    <input type="text" class="form-control" id="txt_nounce" value="0" onkeyup="calculateHash()">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>
+                                    PrevHash
+                                </th>
+                                <td>
+                                    <input type="text" class="form-control" id="txt_prevHash" value="0" disabled>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th>
+                                    Data
+                                </th>
+                                <td>
+                                    <textarea name="" class="form-control" id="txt_input" cols="20" rows="3" onkeyup="calculateHash()"></textarea>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <th>
+                                    Hash
+                                </th>
+                                <td>
+                                    <input type="text" id="txt_hash1" class="form-control" disabled>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+
+                                </th>
+                                <th>
+                                    <input type="button" class="btn btn-success form-control" value="Mine!" onclick="miningProcess();">
+                                </th>
+                            </tr>
+                        </table>
+                    </form>
+
+                </div>
+
+
+            </div>
+            <div class="row form-group">
+                <form action="#">
+                    <table style="margin-left: 420px">
+                        <tr>
+                            <th>
+                                <a style="margin-right:20px" href="./Hash.html" class="btn btn-danger"><i class="fas fa-backward"></i> Previous </i></a>
+                            </th>
+                            <th>
+                                
+                                <a style="margin-right:20px;padding-right: 25px;text-align: center" href="./BlockchainNew.html" class="btn btn-primary">Next <i class="fas fa-forward"></i></a>
+                            </th>
+                        </tr>
+                    </table>
+
+
+
+                </form>
+            </div>
+
+            <div class="footer">
+                <p class="b">Blockchain Visual Representation</p>
+                <p class="s">By Anand & Rinkesh</p>
+            </div>
+
+        </div>
+        <script>
+            function calculateHash() {
+                var block_no = document.getElementById('txt_no').value;
+                var nounce = document.getElementById('txt_nounce').value;
+                var prev_hash = document.getElementById('txt_prevHash').value;
+                var msg = document.getElementById('txt_input').value;
+                var ans = sha256(block_no + nounce + msg + prev_hash);
+                
+                if(!ans.startsWith('000')) {
+                    document.getElementById('mytbl').style.backgroundColor = '#ef7f99';
+                } else {
+                    document.getElementById('mytbl').style.backgroundColor = '#lightblue';
+                }
+                document.getElementById('txt_hash1').value = ans;
+                //txt = ans;
+            }
+
+            function miningProcess() {
+                var block_no = document.getElementById('txt_no').value;
+                var nounce = parseInt(document.getElementById('txt_nounce').value);
+                var msg = document.getElementById('txt_input').value;
+                var prev_hash = document.getElementById('txt_prevHash').value;
+                nounce = 0;
+                var ans = sha256(block_no + nounce + msg + prev_hash);
+                while (!(ans.startsWith("000"))) {
+                    nounce++;
+                    ans = sha256(block_no + nounce + msg + prev_hash);
+                }
+                document.getElementById('mytbl').style.backgroundColor = 'lightblue';
+                document.getElementById('txt_nounce').value = nounce;
+                document.getElementById('txt_hash1').value = ans;
+
+            }
+            //code of SHA256 function
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+
+</html>
